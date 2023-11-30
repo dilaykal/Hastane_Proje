@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
+//Başlıyoruzzzzzz
+
 namespace Hastane_Proje.Controllers
 {
 	public class HomeController : Controller
