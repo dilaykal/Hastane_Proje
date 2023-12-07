@@ -1,0 +1,57 @@
+﻿@model Hastane_Proje.Models.User
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UyeOl">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="kullaniciAdi" class="control-label"></label>
+                <input asp-for="kullaniciAdi" class="form-control" />
+                <span asp-validation-for="kullaniciAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="kullaniciSifre" class="control-label"></label>
+                <input type="password" asp-for="kullaniciSifre" class="form-control" />
+                <span asp-validation-for="kullaniciSifre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="isim" class="control-label"></label>
+                <input asp-for="isim" class="form-control" />
+                <span asp-validation-for="isim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="soyisim" class="control-label"></label>
+                <input asp-for="soyisim" class="form-control" />
+                <span asp-validation-for="soyisim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eposta" class="control-label"></label>
+                <input asp-for="eposta" class="form-control" />
+                <span asp-validation-for="eposta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="telNo" class="control-label"></label>
+                <input asp-for="telNo" required placeholder="05**-***-****" class="form-control" />
+                <span asp-validation-for="telNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tcNo" class="control-label"></label>
+                <input asp-for="tcNo" class="form-control" />
+                <span asp-validation-for="tcNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="adres" class="control-label"></label>
+                <input asp-for="adres" class="form-control" />
+                <span asp-validation-for="adres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Üye Ol" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
