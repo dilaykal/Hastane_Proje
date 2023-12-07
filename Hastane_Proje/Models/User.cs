@@ -7,6 +7,6 @@ namespace Hastane_Proje.Models
         [Display(Name ="Kullanıcı Adı")]
         public string kullaniciAdi { get; set; }
         [Display(Name = "Şifre")]
-        public string kullaniciSifre { get; set; }
+        public string kullaniciSifre { get; set; } //
     }
 }
