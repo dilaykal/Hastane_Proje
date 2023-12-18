@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Hastane_Proje.styles.css" asp-append-version="true" />
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-...">
+
     @await RenderSectionAsync("Css", required: false)
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light " style="background-color: #FFE4E1; border-bottom: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light " style="background-color:#B22222; border-bottom: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+               
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,19 +24,55 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Poliklinik ve Birimlerimiz</a>
+                            <a class="nav-link" style="color:#F5F5F5" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="fa-solid fa-phone"></i>
+                                0 264 693 93 93
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:#F5F5F5" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                <i class="fa-solid fa-location-dot"></i>
+                                Kemalpaşa Mah. Üniversite Cad. Sakarya Üniversitesi Serdivan/Sakarya
+                            </a>
+                        </li>
+                    </ul>
+                    <form asp-area="" asp-controller="Home" asp-action="Index">
+                        <button class="btn btn-outline-danger" style="background-color:#F5F5F5" type="submit">Randevu Al</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light " style="background-color: #F0F8FF; height:100px; border-bottom: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fa-solid fa-hospital"></i>
+                    Ana Sayfa
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Poliklinik ve Birimlerimiz
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Doktorlar</a>
                         </li>
-                    </ul>
-                   <!-- <ul class="navbar-nav ml-auto" style="background-color:darkred; text-align:center">
                         <li class="nav-item">
-                            <a class="nav-link " style="color:azure" asp-area="" asp-controller="User" asp-action="Index">Randevu Al</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Sağlık Köşesi</a>
                         </li>
-                    </ul>-->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">İletişim</a>
+                        </li>
+                    </ul>
                     <form asp-area="" asp-controller="Home" asp-action="Index">
-                        <button class="btn btn-outline-success" type="submit">Randevu Al</button>
+                        <button class="btn btn-outline-success" type="submit">Giriş Yap</button>
                     </form>
                 </div>
             </div>
@@ -45,9 +84,46 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Hastane_Proje - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer style="padding-top:1rem;padding-bottom:1rem;background-color:maroon;color:#F0F8FF;text-align:center">
+        <div class="row ">
+            <div class="col-sm-4">
+                <h4 class="text-uppercase">İletişim</h4>
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    0 264 693 93 93
+                </p>
+                <p>
+                    
+                    Kemalpaşa Mah. Üniversite Cad. Sakarya Üniversitesi Serdivan/Sakarya
+                </p>
+                <h4 class="text-uppercase">
+                    <a style="color:white; text-decoration:none" href="https://maps.app.goo.gl/g1JiKMztys7Nya9KA">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Konum
+                    </a>
+                </h4>
+            </div>
+            <div class="col-sm-4">
+                <a style="color:white; text-decoration:none" href="https://github.com/dilaykal/Hastane_Proje">
+                    <i class="fa-brands fa-github fa-2xl"></i>
+                </a>
+                <a style="color:white; text-decoration:none" href="https://www.facebook.com/sakaryauni/">
+                    <i class="fa-brands fa-facebook fa-2xl"></i>
+                </a>
+                <a style="color:white; text-decoration:none" href="https://www.instagram.com/sakaryauni/">
+                    <i class="fa-brands fa-instagram fa-2xl"></i>
+                </a>
+                <a style="color:white; text-decoration:none" href="https://www.linkedin.com/school/sakaryauni/?originalSubdomain=tr">
+                    <i class="fa-brands fa-linkedin fa-2xl"></i>
+                </a>
+            </div>
+            <div class="col-sm-4">
+                <h4 class="text-uppercase">E-Servisler</h4>
+                    <p>E-Şikayet</p>
+                    <p>E-Öneri</p>
+                    <p>E-Teşekkür</p>
+                
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
