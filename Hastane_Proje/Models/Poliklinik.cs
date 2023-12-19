@@ -1,7 +1,14 @@
-﻿namespace Hastane_Proje.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Hastane_Proje.Models
 {
     public class Poliklinik
     {
-        public int MyProperty { get; set; }
+        public int PoliklinikID { get; set; }
+        public string PoliklinikAdi { get; set; }
+        public string Aciklama { get; set; }
+        public List<string> TedaviAlani { get; set; }
+        public ICollection<Doktor> ?Doktorlar { get; set; }
+
     }
 }
