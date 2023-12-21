@@ -8,5 +8,6 @@ namespace Hastane_Proje.Controllers
         {
             return View();
         }
+
     }
 }
