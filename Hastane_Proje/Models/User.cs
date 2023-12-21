@@ -4,6 +4,9 @@ namespace Hastane_Proje.Models
 {
     public class User
     {
+        [Key]
+        public int UserID { get; set; }
+
         [Required(ErrorMessage ="Bu alanı doldurmak zorunludur")]
         [Display(Name ="Kullanıcı Adı")]
         public string kullaniciAdi { get; set; }
