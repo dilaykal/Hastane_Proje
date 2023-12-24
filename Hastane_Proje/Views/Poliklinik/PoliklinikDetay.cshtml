@@ -1,0 +1,169 @@
+﻿@model Hastane_Proje.Models.Poliklinik
+
+
+@section Css{
+    <style>
+        img:hover{
+            transform:scale(1.2);
+            
+        }
+       
+    </style>
+}
+
+<br />
+<br />
+<br />
+<div class="row">
+    <div class="col-sm-4" >
+        <div style="background-color:whitesmoke; padding:20px; margin:20px">
+        <h2 style="color:#B22222; text-align:center">Tıbbi Birimlerimiz</h2>
+        <div style="background-color:#B22222; color:whitesmoke; padding:10px;margin:30px">
+                <a style="color:whitesmoke; text-decoration:none; font-size:20px; padding:20px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="13">
+                    Genel Cerrahi
+                </a>
+                <a style="color:whitesmoke; text-decoration:none; font-size:20px; float:right; padding-right:10px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="13">
+                    <i style="text-align:right" class="fa-solid fa-arrow-right"></i>
+                </a>
+        </div>
+            <div style="background-color:#B22222; color:whitesmoke; padding:10px;margin:30px">
+                <a style="color:whitesmoke; text-decoration:none; font-size:20px; padding:20px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="2">
+                    Ağız ve Diş
+                </a>
+                <a style="color:whitesmoke; text-decoration:none; font-size:20px; float:right; padding-right:10px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="2">
+                    <i style="text-align:right" class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <div style="background-color:#B22222; color:whitesmoke; padding:10px;margin:30px">
+                <a style="color:whitesmoke; text-decoration:none; font-size:20px; padding:20px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="19">
+                    Nöroloji
+                </a>
+                <a style="color:whitesmoke; text-decoration:none; font-size:20px; float:right; padding-right:10px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="19">
+                    <i style="text-align:right" class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <div style="background-color:#B22222; color:whitesmoke; padding:10px;margin:30px">
+                <a style="color:whitesmoke; text-decoration:none; font-size:20px; padding:20px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="9">
+                    Dermatoloji(Cildiye)
+                </a>
+                <a style="color:whitesmoke; text-decoration:none; font-size:20px; float:right; padding-right:10px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="9">
+                    <i style="text-align:right" class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <div style="background-color:#B22222; color:whitesmoke; padding:10px;margin:30px">
+                <a style="color:whitesmoke; text-decoration:none; font-size:20px; padding:20px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="29">
+                    Radyoloji
+                </a>
+                <a style="color:whitesmoke; text-decoration:none; font-size:20px; float:right; padding-right:10px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="29">
+                    <i style="text-align:right" class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        <div style="background-color:#B22222; padding:30px; margin:20px; color:white">
+            <i style="font-size:50px; margin:10px; color:whitesmoke" class="fa-solid fa-stethoscope fa-2xl"></i>
+            <br />
+            <h4 style="margin:10px">Detaylı Bilgi ve Randevu</h4>
+            <p>Lütfen genel veya tıbbi sorularınız için güler yüzlü personellerimizle iletişime geçmekten memnuniyet duyarız, bizi arayın.</p>
+            <p style="font-size:20px;color:aqua">
+                <i class="fa-solid fa-phone"></i>
+                0 264 693 93 93
+            </p>
+            <form asp-area="" asp-controller="Home" asp-action="Index">
+                <button class="btn btn-outline-danger" style="background-color:indianred;font-size:20px" type="submit">Online Randevu
+                    <i style="text-align:right;margin:10px" class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+
+        </div>
+        <div style="background-color:whitesmoke; padding:30px; margin:20px">
+            <i style="font-size:50px; color:darkred" class="fa-regular fa-clock fa-2xl"></i>
+            <br />
+            <br />
+            <h4 style="color:darkred; margin:10px">Çalışma Saatlerimiz</h4>
+            @if(Model.PoliklinikID != 1 && Model.PoliklinikID != 32)
+            {
+                <table>
+                    <tr style="margin:10px;padding:20px">
+                        <td style="border-bottom: 1px solid #ddd;padding: 15px;">
+                            Hafta İçi
+                        </td>
+                        <td style="border-bottom: 1px solid #ddd;padding: 15px;">08.00 - 17.00</td>
+                    </tr>
+                    <tr>
+                        <td style="border-bottom: 1px solid #ddd;padding: 15px;">
+                            Cumartesi
+                        </td>
+                        <td style="border-bottom: 1px solid #ddd;padding: 15px;">
+                            08.00 - 14.00
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-bottom: 1px solid #ddd;padding: 15px;">
+                            Pazar
+                        </td>
+                        <td style="border-bottom: 1px solid #ddd;padding: 15px;">
+                            ---
+                        </td>
+                    </tr>
+                </table>
+            }
+            else
+            {
+                <table>
+                    <tr style="margin:10px;padding:20px">
+                        <td style="border-bottom: 1px solid #ddd;padding: 15px;">
+                            7/24
+                        </td>
+                        
+                    </tr>
+                   
+                </table>
+            }
+            
+
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <br />
+        @if (Model.Doktorlar.Count > 0)
+        {
+            <table style="padding:50px;margin:50px" >
+               <tr>
+                @foreach (var doktor in Model.Doktorlar)
+                {
+                    <td style="margin:10px;padding:40px">
+                        <figure>
+                            <a style="text-decoration:none" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="@doktor.Foto" width=200 height=300>
+                        </a>
+                        <br />
+                        <br />
+                                <a style="text-decoration:none" asp-area="" asp-controller="Home" asp-action="Index">
+                            <h4>@doktor.DoktorAdi</h4>
+                        </a>
+                        <p style="color:#B22222;font-size:20px">@Model.PoliklinikAdi</p>
+                        </figure>
+                    </td>
+                }
+                </tr>
+            </table>
+        }
+        else
+        {
+            <h3>Polikliniğimizde geçici olarak doktor yok</h3>
+        }
+        @if(Model.Aciklama != null)
+        {
+           <div> <p style="font-size:20px">@Model.Aciklama</p></div>
+        }
+        @if (Model.TedaviAlani != null)
+        {
+            <div> 
+                <h1>Tedavi Alanlarımız</h1>
+                <p style="font-size:20px">@Model.TedaviAlani</p>
+            </div>
+        }
+    </div>
+</div>
+
+
