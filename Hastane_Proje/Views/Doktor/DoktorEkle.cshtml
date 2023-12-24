@@ -1,0 +1,250 @@
+﻿@model Hastane_Proje.Models.Doktor
+@section Css{
+    <style>
+        p {
+            font-size: 30px;
+        }
+
+        .foto-container {
+            width: 300px; /* İstenen genişlik */
+            height: auto; /* Otomatik yükseklik ayarlanması */
+        }
+
+        img {
+            width: 100%; /* Genişliği %100 yaparak container'a sığdırma */
+            height: auto; /* Oranları koruyarak otomatik yükseklik ayarlanması */
+        }
+    </style>
+}
+
+<div class="container-fluid" style="background-color:#B22222; text-align:center;  font-size:45px">
+    <div class="row" style="padding-top:30px ;  padding-left:30px; padding-right:30px; ">
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/aliatay.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Ali Atay</b></p>
+                <p style="font-size:20px"> Acil</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img src="https://github.com/dilaykal/Hastane_Proje/blob/main/asl%C4%B1hang%C3%BCrb%C3%BCz2.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b> Dr. Aslıhan Gürbüz</b></p>
+                <p style="font-size:20px">Ağız Ve Diş Sağlığı</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img src="https://github.com/dilaykal/Hastane_Proje/blob/main/azimee.jpeg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Azime Akyıldız</b></b></p>
+                <p style="font-size:20px">Beslenme ve Diyetetik</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:290px"src="https://github.com/dilaykal/Hastane_Proje/blob/main/beyza.jpeg?raw=true" alt="">
+                <br>
+                <br />
+                <p> <b>Dr. Beyza Sezer</b></p>
+                <p style="font-size:20px">Biyokimya</p>
+            </a>
+        </div>
+    </div>
+    <div class="row" style="padding-left:30px; padding-right:30px; ">
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/birceakalay.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Birce Akalay</b></p>
+                <p style="font-size:20px"> Çocuk Sağlığı ve Hastalıkları</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img src="https://github.com/dilaykal/Hastane_Proje/blob/main/ceyda.jpeg?raw=true" alt="">
+                <br>
+                <br />
+                <p> <b>Dr. Ceyda Yılmaz </b></p>
+                <p style="font-size:20px">Dermatoloji</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img src="https://github.com/dilaykal/Hastane_Proje/blob/main/dilay.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Dilay Kal</b></p>
+                <p style="font-size:20px">Nöroloji</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:290px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/ecem2.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Ecem Sarıoğlu</b></p>
+                <p style="font-size:20px">El Cerrahisi ve Mikrocerrahi</p>
+            </a>
+        </div>
+    </div>
+    <div class="row" style="padding-left:30px; padding-right:30px; ">
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/elif.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Elif Şevval Saçlı</b></p>
+                <p style="font-size:20px"> Kalp ve Damar Cerrahisi</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px"src="https://github.com/dilaykal/Hastane_Proje/blob/main/feyza.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p> <b> Dr. Feyza Çap</b></p>
+                <p style="font-size:20px">Enfeksiyon Hastalıkları</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px"src="https://github.com/dilaykal/Hastane_Proje/blob/main/hayrunisa2.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Hayrunnisa Özçelik</b></p>
+                <p style="font-size:20px">Fizik Tedavi ve Rehabilitasyon</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:290px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/henrycavil.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Henry Cavil</b></p>
+                <p style="font-size:20px">Beyin ve Sinir Cerrahisi</p>
+            </a>
+        </div>
+    </div>
+    <div class="row" style="padding-left:30px; padding-right:30px; ">
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/jensen.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Jensen Ackles</b></p>
+                <p style="font-size:20px"> Genel Cerrahi</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/erkankeka2.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p> <b> Dr. Erkan Kolçak Köstendil </b></p>
+                <p style="font-size:20px">Genel Yoğun Bakım</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/metinakd%C3%BClger2.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Metin Akdülger</b></p>
+                <p style="font-size:20px">Göğüs Hastalıkları</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:290px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/nisa2.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Nisa Nur Örnek</b></p>
+                <p style="font-size:20px">Göz Sağlığı ve Hastalıkları</p>
+            </a>
+        </div>
+    </div>
+    <div class="row" style="padding-left:30px; padding-right:30px; ">
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/rana2.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Rana Aslan</b></p>
+                <p style="font-size:20px"> İç Hastalıkları</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/sedasayan2.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p> <b> Dr. Seda Sayan</b></p>
+                <p style="font-size:20px">Kadın Hastalıkları ve Doğum</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/selahattin.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Selahattin Paşalı</b></p>
+                <p style="font-size:20px">Kulak Burun Boğaz</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/seref.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Şeref Dinç</b></p>
+                <p style="font-size:20px">Ortopedi</p>
+            </a>
+        </div>
+    </div>
+    <div class="row" style=" padding-bottom:30px; padding-left:30px; padding-right:30px; ">
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/sude.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Sude Çakmak</b></p>
+                <p style="font-size:20px">Radyoloji</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/timucinesen.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p> <b> Dr. Timuçin Esen</b></p>
+                <p style="font-size:20px">Patoloji</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:280px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/tolga%C3%A7evik2.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Tolga Çevik</b></p>
+                <p style="font-size:20px">Üroloji</p>
+            </a>
+        </div>
+        <div class="col-sm-3 p-5 text-white" style="border-style:solid; border-width:1px;">
+            <a href="" style="color:white; text-decoration:none;">
+                <img style="height:290px" src="https://github.com/dilaykal/Hastane_Proje/blob/main/dylanobrien2.jpg?raw=true" alt="">
+                <br>
+                <br />
+                <p><b>Dr. Dylan O'Brien</b></p>
+                <p style="font-size:20px">Yenidoğan Yoğun Bakım</p>
+            </a>
+        </div>
+    </div>
+
+</div>
