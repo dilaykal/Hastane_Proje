@@ -1,13 +1,11 @@
-﻿@model Hastane_Proje.Models.Poliklinik
+﻿@model Hastane_Proje.Models.Doktor
 
 
 @section Css{
     <style>
-        img:hover{
-            transform:scale(1.2);
-            
+        img:hover {
+            transform: scale(1.2);
         }
-       
     </style>
 }
 
@@ -15,17 +13,17 @@
 <br />
 <br />
 <div class="row">
-    <div class="col-sm-4" >
+    <div class="col-sm-4">
         <div style="background-color:whitesmoke; padding:20px; margin:20px">
-        <h2 style="color:#B22222; text-align:center">Tıbbi Birimlerimiz</h2>
-        <div style="background-color:#B22222; color:whitesmoke; padding:10px;margin:30px">
+            <h2 style="color:#B22222; text-align:center">Tıbbi Birimlerimiz</h2>
+            <div style="background-color:#B22222; color:whitesmoke; padding:10px;margin:30px">
                 <a style="color:whitesmoke; text-decoration:none; font-size:20px; padding:20px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="13">
                     Genel Cerrahi
                 </a>
                 <a style="color:whitesmoke; text-decoration:none; font-size:20px; float:right; padding-right:10px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="13">
                     <i style="text-align:right" class="fa-solid fa-arrow-right"></i>
                 </a>
-        </div>
+            </div>
             <div style="background-color:#B22222; color:whitesmoke; padding:10px;margin:30px">
                 <a style="color:whitesmoke; text-decoration:none; font-size:20px; padding:20px" asp-controller="Poliklinik" asp-action="PoliklinikDetay" asp-route-id="2">
                     Ağız ve Diş
@@ -69,7 +67,8 @@
                 0 264 693 93 93
             </p>
             <form asp-area="" asp-controller="Home" asp-action="Index">
-                <button class="btn btn-outline-danger" style="background-color:indianred;font-size:20px" type="submit">Online Randevu
+                <button class="btn btn-outline-danger" style="background-color:indianred;font-size:20px" type="submit">
+                    Online Randevu
                     <i style="text-align:right;margin:10px" class="fa-solid fa-arrow-right"></i>
                 </button>
             </form>
@@ -80,7 +79,7 @@
             <br />
             <br />
             <h4 style="color:darkred; margin:10px">Çalışma Saatlerimiz</h4>
-            @if(Model.PoliklinikID != 1 && Model.PoliklinikID != 32)
+            @if (Model.DoktorID != 1 && Model.DoktorID != 34)
             {
                 <table>
                     <tr style="margin:10px;padding:20px">
@@ -114,55 +113,49 @@
                         <td style="border-bottom: 1px solid #ddd;padding: 15px;">
                             7/24
                         </td>
-                        
+
                     </tr>
-                   
+
                 </table>
             }
-            
+
 
         </div>
     </div>
     <div class="col-sm-8">
         <br />
-        @if (Model.Doktorlar.Count > 0)
-        {
-            <table style="padding:50px;margin:50px" >
-               <tr>
-                @foreach (var doktor in Model.Doktorlar)
-               {
-                    <td style="margin:10px;padding:40px">
-                        <figure>
-                            <a style="text-decoration:none" asp-area="" asp-controller="Home" asp-action="Index">
-                        <img src="@doktor.Foto" width=200 height=300>
-                        </a>
-                        <br />
-                        <br />
+        
+            <table style="padding:50px;margin:50px">
+                <tr>
+                    
+                        <td style="margin:10px;padding:40px">
+                            <figure>
                                 <a style="text-decoration:none" asp-area="" asp-controller="Home" asp-action="Index">
-                            <h4>@doktor.DoktorAdi</h4>
-                        </a>
-                        <p style="color:#B22222;font-size:20px">@Model.PoliklinikAdi</p>
-                        </figure>
-                    </td>
-               }
+                                    <img src="@Model.Foto" width=200 height=300>
+                                </a>
+                                <br />
+                                <br />
+                                <a style="text-decoration:none" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <h4>@Model.DoktorAdi</h4>
+                                </a>
+                                <p style="color:#B22222;font-size:20px">@Model.Poliklinik.PoliklinikAdi</p>
+                            </figure>
+                        </td>
+                    
                 </tr>
             </table>
-        }
-        else
+       
+     @*    @if (Model.DogumTarihi != null)
         {
-            <h3>Polikliniğimizde geçici olarak doktor yok</h3>
+            <div> <p style="font-size:20px">abn</p></div>
         }
-        @if(Model.Aciklama != null)
+        @if (Model.DogumYeri != null)
         {
-           <div> <p style="font-size:20px">@Model.Aciklama</p></div>
-        }
-        @if (Model.TedaviAlani != null)
-        {
-            <div> 
+            <div>
                 <h1>Tedavi Alanlarımız</h1>
-                <p style="font-size:20px">@Model.TedaviAlani</p>
+                <p style="font-size:20px"></p>
             </div>
-        }
+        } *@
     </div>
 </div>
 

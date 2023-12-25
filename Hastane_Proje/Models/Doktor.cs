@@ -14,7 +14,9 @@ namespace Hastane_Proje.Models
         public string Mail { get; set; }
         public string Foto {  get; set; }
 
-        public Poliklinik Poliklinik {  get; set; } 
- 
+        public Poliklinik Poliklinik {  get; set; }
+        public ICollection<Randevu>? randevular { get; set; }
+
+
     }
 }
