@@ -6,6 +6,23 @@
         img:hover {
             transform: scale(1.2);
         }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #B22222;
+            color:white;
+        }
     </style>
 }
 
@@ -135,27 +152,29 @@
                                 </a>
                                 <br />
                                 <br />
-                                <a style="text-decoration:none" asp-area="" asp-controller="Home" asp-action="Index">
-                                    <h4>@Model.DoktorAdi</h4>
+                                <a style="text-decoration:none; color:black" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <h4>Dr. @Model.DoktorAdi</h4>
                                 </a>
-                                <p style="color:#B22222;font-size:20px">@Model.Poliklinik.PoliklinikAdi</p>
                             </figure>
                         </td>
                     
                 </tr>
             </table>
        
-     @*    @if (Model.DogumTarihi != null)
-        {
-            <div> <p style="font-size:20px">abn</p></div>
-        }
-        @if (Model.DogumYeri != null)
-        {
-            <div>
-                <h1>Tedavi Alanlarımız</h1>
-                <p style="font-size:20px"></p>
-            </div>
-        } *@
+            <table>
+                <tr>
+                    <td>Branş</td>
+                    <td>@Model.Poliklinik.PoliklinikAdi</td>
+                </tr>
+                <tr>
+                    <td>Doğum Yeri, Tarihi</td>
+                    <td>@Model.DogumYeri, @Model.DogumTarihi</td>            
+                </tr>
+                <tr>
+                    <td>E-posta</td>
+                    <td>@Model.Mail</td>
+                </tr>
+            </table>
     </div>
 </div>
 
