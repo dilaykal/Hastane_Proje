@@ -8,5 +8,9 @@ namespace Hastane_Proje.Controllers
         {
             return View();
         }
+        public IActionResult Giris()
+        {
+            return View();
+        }
     }
 }
