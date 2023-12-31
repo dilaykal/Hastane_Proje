@@ -11,7 +11,7 @@ namespace Hastane_Proje.Controllers
         {
             return View();
         }
-        public IActionResult PoliklinikDetay(int id)
+        public IActionResult PoliklinikDetay(int? id)
         {
             if(id == null)
             {

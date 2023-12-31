@@ -8,7 +8,7 @@ namespace Hastane_Proje.Controllers
     {
         private HastaneContext _context = new HastaneContext();
 
-        public IActionResult Randevu(int ?id)
+      /*  public IActionResult Randevu(int ?id)
         {
             if (id == null)
             {
@@ -18,6 +18,41 @@ namespace Hastane_Proje.Controllers
             if (hasta == null) return NotFound();
 
             return View(hasta);
+        }*/
+        public IActionResult Randevu() {
+            return View(_context);
+        }
+        public IActionResult DoktorSecimi(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var birim = _context.Poliklinikler.Include(d => d.Doktorlar).FirstOrDefault(x => x.PoliklinikID == id);
+            if (birim == null) return NotFound();
+
+            return View(birim);
+           
+        }
+        public IActionResult TarihSecimi(int id) {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var birim = _context.Doktorlar.Include(r=> r.randevular).FirstOrDefault(x => x.DoktorID == id);
+            if (birim == null) return NotFound();
+
+            return View(birim);
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public void RandevuKaydet()
+        {
+
         }
     }
 }
