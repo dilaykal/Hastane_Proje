@@ -1,0 +1,40 @@
+﻿@model Hastane_Proje.Models.Poliklinik
+
+@section Css {
+    <style>
+        div.kutucuk {
+            padding: 20px;
+            margin: 0px 20px 0px 20px;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+            text-align:center;
+            color: black;
+        }
+    </style>
+}
+
+<a asp-controller="Randevu" asp-action="Randevu" style="text-decoration:none;">
+<div class ="container-fluid" style="background-color:mistyrose;width:30% ;height: 90% ; margin:auto; padding:10px">
+   <div class="kutucuk" >
+       <i class="fa-solid fa-stethoscope"></i>@Model.PoliklinikAdi
+   </div>
+</div>
+</a>
+<div class="container-fluid" style="background-color:mistyrose;width:30% ;height: 90% ; margin:auto; padding:10px">
+
+    @if (Model.Doktorlar.Count > 0)
+    {
+                @foreach (var doktor in Model.Doktorlar)
+                {
+                    <a asp-controller="Randevu" asp-action="TarihSecimi" asp-route-id="@doktor.DoktorID" style="text-decoration:none;">
+                <div class="kutucuk">
+                    <i class="fa-solid fa-user-doctor"></i> @doktor.DoktorAdi
+                </div>
+                    </a>
+                }
+    }
+
+
+
+</div>
