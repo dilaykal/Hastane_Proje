@@ -54,7 +54,7 @@
 </a>
 <div class="container-fluid" style="background-color:mistyrose;width:30% ;height: 90% ; margin:auto; padding:10px">
 
-    <form id="randevuForm">
+    <form asp-controller="Randevu" asp-for="RandevuKaydet" asp-route-id="" id="randevuForm">
         <label for="selectedDate">Tarih:</label>
         <input type="date" id="selectedDate" required>
 
@@ -64,6 +64,9 @@
         </select>
 
         <button type="button" onclick="randevuAl()">Randevu Al</button>
+        <!-- Örneğin, bir hidden input elemanından doktorID'yi alalım -->
+        <input type="hidden" id="doktorID" value="@Model.DoktorID">
+
 
         <div id="errorMessage" class="error"></div>
     </form>
@@ -72,99 +75,130 @@
 </div>
 
 <script>
-        // Tarih seçimindeki değişiklikleri dinle
-        document.getElementById("selectedDate").addEventListener("input", function () {
-            // Geçmiş tarihi engelle
-            var today = new Date().toISOString().split("T")[0];
-            var selectedDate = document.getElementById("selectedDate").value;
+    // Tarih seçimindeki değişiklikleri dinle
+    document.getElementById("selectedDate").addEventListener("input", function () {
+        // Geçmiş tarihi engelle
+        var today = new Date().toISOString().split("T")[0];
+        var selectedDate = document.getElementById("selectedDate").value;
 
-            if (selectedDate < today) {
-                document.getElementById("selectedDate").value = today;
-            }
-
-            // Pazar günlerini ve Cumartesi günlerini kontrol et
-            var selectedDay = new Date(selectedDate).getDay();
-            if (selectedDay === 0 || selectedDay === 6) {
-                document.getElementById("selectedDate").value = today;
-                alert("Cumartesi ve Pazar günleri randevu alınamaz.");
-            }
-
-            // Saat seçeneklerini güncelle
-            updateHourOptions();
-        });
-
-        document.getElementById("selectedDate").addEventListener("change", updateHourOptions);
-
-        function updateHourOptions() {
-            // Seçilen tarih ve saat bilgilerini al
-            var selectedDate = document.getElementById("selectedDate").value;
-            var selectedHourSelect = document.getElementById("selectedHour");
-
-            // Basit bir hata kontrolü yap
-            if (!selectedDate) {
-                document.getElementById("errorMessage").innerText = "Tarih seçmelisiniz.";
-                return;
-            }
-
-            // Seçilen tarihe ait dolu saatleri al ve devre dışı bırak
-            var doluSaatler = getDoluSaatler(selectedDate);
-            updateSelectOptions(selectedHourSelect, doluSaatler);
-            document.getElementById("errorMessage").innerText = "";
+        if (selectedDate < today) {
+            document.getElementById("selectedDate").value = today;
         }
 
-        function getDoluSaatler(selectedDate) {
-            // Bu fonksiyon, seçilen tarihe ait dolu saatleri almalıdır.
-            // Gerçek bir senaryoda, bu bilgiyi sunucudan almanız gerekebilir.
-            // Burada basit bir örnek gösterilmektedir.
-            // İsterseniz sunucu tarafından bu bilgi alınabilir ve AJAX kullanılarak güncellenebilir.
-
-            // Örnek: Cumartesi günleri 08:00 - 14:00 saatleri dolu
-            if (new Date(selectedDate).getDay() === 6) {
-                return ["08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00"];
-            }
-
-            // Örnek: Diğer günlerde 12:00 - 14:00 saatleri dolu
-            return ["12:00", "13:00", "14:00"];
+        // Pazar günlerini ve Cumartesi günlerini kontrol et
+        var selectedDay = new Date(selectedDate).getDay();
+        if (selectedDay === 0 || selectedDay === 6) {
+            document.getElementById("selectedDate").value = today;
+            alert("Cumartesi ve Pazar günleri randevu alınamaz.");
         }
 
-        function updateSelectOptions(selectElement, doluSaatler) {
-            // Saat seçeneklerini temizle
-            selectElement.innerHTML = "";
+        // Saat seçeneklerini güncelle
+        updateHourOptions();
+    });
 
-            // Saat seçeneklerini güncelle
-            var startTime, endTime;
+    document.getElementById("selectedDate").addEventListener("change", updateHourOptions);
 
-            // Cumartesi günleri için saat aralığı
-            if (new Date(document.getElementById("selectedDate").value).getDay() === 6) {
-                startTime = 8;  // 08:00
-                endTime = 14;   // 14:00
-            } else {
-                // Diğer günler için saat aralığı
-                startTime = 8;  // 08:00
-                endTime = 17;   // 17:00
-            }
+    function updateHourOptions() {
+        // Seçilen tarih ve saat bilgilerini al
+        var selectedDate = document.getElementById("selectedDate").value;
+        var selectedHourSelect = document.getElementById("selectedHour");
 
-            for (var i = startTime; i <= endTime; i++) {
-                for (var minute = 0; minute < 60; minute += 30) {
-                    var hour = (i < 10) ? "0" + i : "" + i;
-                    var time = hour + ":" + (minute === 0 ? "00" : "30");
+        // Basit bir hata kontrolü yap
+        if (!selectedDate) {
+            document.getElementById("errorMessage").innerText = "Tarih seçmelisiniz.";
+            return;
+        }
 
-                    var option = document.createElement("option");
-                    option.value = time;
-                    option.text = time;
+        // Seçilen tarihe ait dolu saatleri al ve devre dışı bırak
+        var doluSaatler = getDoluSaatler(selectedDate);
+        updateSelectOptions(selectedHourSelect, doluSaatler);
+        document.getElementById("errorMessage").innerText = "";
+    }
 
-                    // Dolu saatler arasında ise devre dışı bırak
-                    if (doluSaatler.indexOf(time) !== -1) {
-                        option.disabled = true;
-                    }
+    function getDoluSaatler(selectedDate) {
+        // Bu fonksiyon, seçilen tarihe ait dolu saatleri almalıdır.
+        // Gerçek bir senaryoda, bu bilgiyi sunucudan almanız gerekebilir.
+        // Burada basit bir örnek gösterilmektedir.
+        // İsterseniz sunucu tarafından bu bilgi alınabilir ve AJAX kullanılarak güncellenebilir.
 
-                    selectElement.add(option);
+        // Örnek: Cumartesi günleri 08:00 - 14:00 saatleri dolu
+    @foreach (var randevu in Model.randevular)
+    {
+
+    }
+                    if (new Date(selectedDate).getDay() === 6) {
+            return ["08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00"];
+        }
+
+        // Örnek: Diğer günlerde 12:00 - 14:00 saatleri dolu
+        return ["12:00", "13:00", "14:00"];
+    }
+
+    function updateSelectOptions(selectElement, doluSaatler) {
+        // Saat seçeneklerini temizle
+        selectElement.innerHTML = "";
+
+        // Saat seçeneklerini güncelle
+        var startTime, endTime;
+
+        // Cumartesi günleri için saat aralığı
+        if (new Date(document.getElementById("selectedDate").value).getDay() === 6) {
+            startTime = 8;  // 08:00
+            endTime = 14;   // 14:00
+        } else {
+            // Diğer günler için saat aralığı
+            startTime = 8;  // 08:00
+            endTime = 17;   // 17:00
+        }
+
+        for (var i = startTime; i <= endTime; i++) {
+            for (var minute = 0; minute < 60; minute += 30) {
+                var hour = (i < 10) ? "0" + i : "" + i;
+                var time = hour + ":" + (minute === 0 ? "00" : "30");
+
+                var option = document.createElement("option");
+                option.value = time;
+                option.text = time;
+
+                // Dolu saatler arasında ise devre dışı bırak
+                if (doluSaatler.indexOf(time) !== -1) {
+                    option.disabled = true;
                 }
+
+                selectElement.add(option);
             }
         }
+    }
 
-        function randevuAl() {
-            // Diğer randevu alma işlemleri burada gerçekleştirilebilir
-            // ...
-        }
-    </script>
+    function randevuAl() {
+        // Seçilen tarih ve saat bilgilerini al
+        var selectedDate = document.getElementById("selectedDate").value;
+        var selectedHour = document.getElementById("selectedHour").value;
+
+        // DoktorID'yi al
+        var doktorID = document.getElementById("doktorID").value;
+
+        // Veriyi JSON formatına dönüştür
+        var data = {
+            SelectedDate: selectedDate,
+            SelectedHour: selectedHour,
+            DoktorID: doktorID
+        };
+
+        // AJAX isteği oluştur ve sunucuya gönder
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/Randevu/RandevuKaydet", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Başarılı bir yanıt alındığında buraya kod ekleyebilirsiniz
+            }
+        };
+
+        // JSON veriyi gönder
+        xhr.send(JSON.stringify(data));
+    }
+
+
+</script>

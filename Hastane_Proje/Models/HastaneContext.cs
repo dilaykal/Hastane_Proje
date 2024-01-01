@@ -9,6 +9,7 @@ namespace Hastane_Proje.Models
         public DbSet<Doktor> Doktorlar { get; set; }  //Kitap isimli sınıfım Kitaplar isimli bir tabloya karşılık gelsin
         public DbSet<Poliklinik> Poliklinikler { get; set; }
         public DbSet<User> Kullanıcılar { get; set; }
+
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
