@@ -31,6 +31,8 @@ namespace Hastane_Proje.Models
         public string tcNo { get; set; }
         [Display(Name = "Adres")]
         public string adres { get; set; }
+
+        public string Rol { get; set; }
         public ICollection<Randevu>? randevular { get; set; }
 
 
