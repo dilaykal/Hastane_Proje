@@ -16,6 +16,5 @@ namespace Hastane_Proje.Models
         public string AdminPassword { get; set; }
         [StringLength(1)]
         public string AdminRole { get; set; }
-
     }
 }

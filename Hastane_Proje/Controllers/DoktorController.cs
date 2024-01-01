@@ -1,4 +1,5 @@
 ﻿using Hastane_Proje.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,7 @@ namespace Hastane_Proje.Controllers
     {
         private HastaneContext _c = new HastaneContext();
 
+        [Authorize]
         public IActionResult Index()
         {
             return View();
