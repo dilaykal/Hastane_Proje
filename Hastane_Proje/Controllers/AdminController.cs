@@ -24,7 +24,7 @@ namespace Hastane_Proje.Controllers
             {
                 return RedirectToAction("AdminLogin");
             }
-            return View();
+            //sreturn View();
         }
     }
 }

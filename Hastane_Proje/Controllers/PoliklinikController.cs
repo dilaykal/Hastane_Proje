@@ -12,8 +12,10 @@ namespace Hastane_Proje.Controllers
         {
             return View();
         }
+
         [Authorize]
-        public IActionResult PoliklinikDetay(int id)
+        public IActionResult PoliklinikDetay(int? id)
+
         {
             if(id == null)
             {
