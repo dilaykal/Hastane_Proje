@@ -1,0 +1,55 @@
+﻿@model Hastane_Proje.Models.Admin
+
+@section Css{
+    <style>
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            margin: 0;
+        }
+
+        #merkez-div {
+            width: 300px;
+            border: 1px solid gray;
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        a:hover {
+            color: red;
+        }
+    </style>
+}
+
+<div class="row">
+    <div class="col-md-4" id="merkez-div">
+        <form asp-action="LogIN">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AdmiUserName" class="control-label"></label>
+                <input asp-for="AdmiUserName" class="form-control" />
+                <span asp-validation-for="AdmiUserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminPassword" class="control-label"></label>
+                <input type="password" asp-for="AdminPassword" class="form-control" />
+                <span asp-validation-for="AdminPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <br />
+                <input type="submit" value="Giriş Yap" class="btn btn-primary" />
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

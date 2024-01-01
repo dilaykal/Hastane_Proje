@@ -1,4 +1,5 @@
 ﻿using Hastane_Proje.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,7 @@ namespace Hastane_Proje.Controllers
         {
             return View();
         }
+        [Authorize]
         public IActionResult PoliklinikDetay(int id)
         {
             if(id == null)
